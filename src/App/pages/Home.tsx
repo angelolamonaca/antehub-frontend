@@ -1,5 +1,7 @@
+import { Typography } from '@mui/material'
+
 const Home = () => {
-  return <h1>Home</h1>
+  return <Typography sx={{ fontFamily: 'DM Mono' }}>Home</Typography>
 }
 
 export default Home

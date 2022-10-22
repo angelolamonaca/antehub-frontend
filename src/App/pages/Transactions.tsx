@@ -1,5 +1,7 @@
+import { Typography } from '@mui/material'
+
 const Transactions = () => {
-  return <h1>Transactions</h1>
+  return <Typography sx={{ fontFamily: 'DM Mono' }}>Transactions</Typography>
 }
 
 export default Transactions

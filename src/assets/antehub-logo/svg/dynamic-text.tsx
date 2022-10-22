@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 export const dynamicText = (size = 245, color = '#ffffff') => {
   return (
     <svg width={size} height='100%' viewBox='0 0 210 1'>

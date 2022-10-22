@@ -1,5 +1,7 @@
+import { Typography } from '@mui/material'
+
 const NoPage = () => {
-  return <h1>404</h1>
+  return <Typography sx={{ fontFamily: 'DM Mono' }}>404</Typography>
 }
 
 export default NoPage

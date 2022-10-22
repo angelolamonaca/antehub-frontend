@@ -1,5 +1,7 @@
+import { Typography } from '@mui/material'
+
 const Wallets = () => {
-  return <h1>Wallets</h1>
+  return <Typography sx={{ fontFamily: 'DM Mono' }}>Wallets</Typography>
 }
 
 export default Wallets

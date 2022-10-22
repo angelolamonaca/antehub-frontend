@@ -5,6 +5,13 @@ import Home from './pages/Home'
 import Wallets from './pages/Wallets'
 import Transactions from './pages/Transactions'
 import NoPage from './pages/NoPage'
+import WebFont from 'webfontloader'
+
+WebFont.load({
+  google: {
+    families: ['DM Mono']
+  }
+})
 
 export const Index = (): JSX.Element => {
   return (

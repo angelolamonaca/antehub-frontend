@@ -1,15 +1,24 @@
-export const dynamicLogo = (size = 245, primaryColor = '#ffffff', secondaryColor = '#ffffff', accentColor = '#ffffff') => {
+/* eslint-disable max-len */
+
+export const dynamicLogo = (
+  size = 245,
+  primaryColor = '#ffffff',
+  secondaryColor = '#ffffff',
+  accentColor = '#ffffff'
+) => {
   return (
     <svg width={size} height='100%' viewBox='0 0 245 245'>
       <g aria-roledescription='triangles' transform='matrix(1.5,0,0,1.5,50,40)'>
         <path
           aria-roledescription='right-triangle'
-          d='M62.78 23l32 55.42 1.3-2.26h-64l1.3 2.26L65.37 23a1.5 1.5 0 0 0-2.59-1.51L30.79 77a1.51 1.51 0 0 0 1.3 2.26h64A1.51 1.51 0 0 0 97.37 77l-32-55.42A1.5 1.5 0 0 0 62.78 23Z'
+          d='M62.78 23l32 55.42 1.3-2.26h-64l1.3 2.26L65.37 23a1.5 1.5 0 0 0-2.59-1.51L30.79
+          77a1.51 1.51 0 0 0 1.3 2.26h64A1.51 1.51 0 0 0 97.37 77l-32-55.42A1.5 1.5 0 0 0 62.78 23Z'
           fill={primaryColor}
         ></path>
         <path
           aria-roledescription='left-triangle'
-          d='M34.63 23l32 55.42 1.3-2.26h-64l1.3 2.26L37.22 23a1.5 1.5 0 0 0-2.59-1.51L2.63 77a1.51 1.51 0 0 0 1.3 2.26h64A1.51 1.51 0 0 0 69.21 77l-32-55.42A1.5 1.5 0 0 0 34.63 23Z'
+          d='M34.63 23l32 55.42 1.3-2.26h-64l1.3 2.26L37.22 23a1.5 1.5 0 0 0-2.59-1.51L2.63
+          77a1.51 1.51 0 0 0 1.3 2.26h64A1.51 1.51 0 0 0 69.21 77l-32-55.42A1.5 1.5 0 0 0 34.63 23Z'
           fill={secondaryColor}
         ></path>
       </g>
