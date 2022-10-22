@@ -22,10 +22,10 @@ export const Desktop = (props: Props): JSX.Element => {
         </Link>
       </Box>
 
-      <Box sx={{ flexGrow: 1, display: 'flex', marginX: 5, alignItems: 'center' }}>
+      <Box sx={{ flexGrow: 1, display: 'flex', marginX: 5, justifyContent: 'right' }}>
         {pages.map((page) => (
-          <Link to={`/${page}`} key={page}>
-            <Button onClick={props.handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+          <Link to={`/${page}`} key={page} style={{ textDecoration: 'none' }}>
+            <Button onClick={props.handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block', fontFamily: 'DM Mono', fontSize: 17 }}>
               {page}
             </Button>
           </Link>

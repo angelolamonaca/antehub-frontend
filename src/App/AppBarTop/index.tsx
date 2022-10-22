@@ -19,7 +19,7 @@ export const AppBarTop = (): JSX.Element => {
 
   return (
     <Fragment>
-      <AppBar position='static'>
+      <AppBar position='static' style={{ background: '#37237c' }}>
         <Container maxWidth='xl'>
           <Toolbar disableGutters>
             <Mobile

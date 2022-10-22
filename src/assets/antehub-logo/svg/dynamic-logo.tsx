@@ -1,6 +1,6 @@
-export const dynamicLogo = (size = 245, primaryColor = '#181C5C', secondaryColor = '#323381', thirdColor = '#191a3a') => {
+export const dynamicLogo = (size = 245, primaryColor = '#ffffff', secondaryColor = '#ffffff', thirdColor = '#ffffff') => {
   return (
-    <svg width={size} height={size} viewBox='0 0 245 265'>
+    <svg width={size} height='100%' viewBox='0 0 245 245'>
       <g aria-roledescription='triangles' transform='matrix(1.5,0,0,1.5,50,40)'>
         <path
           aria-roledescription='right-triangle'
