@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
@@ -7,44 +6,29 @@ import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
-import AdbIcon from '@mui/icons-material/Adb'
 import PropTypes from 'prop-types'
 import { pages, settings } from './index'
+import { Link } from 'react-router-dom'
+import dynamicLogo from '../../assets/antehub-logo/svg/dynamic-logo'
 
 export const Desktop = (props: Props): JSX.Element => {
   return (
-    <Fragment>
-      <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-      <Typography
-        variant='h6'
-        noWrap
-        component='a'
-        href='/'
-        sx={{
-          mr: 2,
-          display: { xs: 'none', md: 'flex' },
-          fontFamily: 'monospace',
-          fontWeight: 700,
-          letterSpacing: '.3rem',
-          color: 'inherit',
-          textDecoration: 'none'
-        }}
-      >
-        AnteHub
-      </Typography>
-      <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+    <Box sx={{ flexGrow: 3, display: { xs: 'none', md: 'flex' } }}>
+      <Box sx={{ flexGrow: 0, display: 'flex', margin: 1 }}>
+        <Link to='/' style={{ color: '#FFF' }}>
+          {dynamicLogo(50)}
+        </Link>
+      </Box>
+
+      <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         {pages.map((page) => (
-          <Button
-            key={page}
-            onClick={props.handleCloseNavMenu}
-            sx={{ my: 2, color: 'white', display: 'block' }}
-          >
+          <Button key={page} onClick={props.handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
             {page}
           </Button>
         ))}
       </Box>
 
-      <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+      <Box sx={{ flexGrow: 0, display: 'flex', justifyContent: 'right', alignItems: 'right' }}>
         <Tooltip title='Open settings'>
           <IconButton onClick={props.handleOpenUserMenu} sx={{ p: 0 }}>
             <Avatar alt='Remy Sharp' src='/static/images/avatar/2.jpg' />
@@ -73,7 +57,7 @@ export const Desktop = (props: Props): JSX.Element => {
           ))}
         </Menu>
       </Box>
-    </Fragment>
+    </Box>
   )
 }
 
