@@ -14,8 +14,8 @@ import dynamicText from '../../assets/antehub-logo/svg/dynamic-text'
 
 export const Desktop = (props: Props): JSX.Element => {
   return (
-    <Box sx={{ flexGrow: 3, display: { xs: 'none', md: 'flex' } }}>
-      <Box sx={{ flexGrow: 0, display: 'flex', marginY: 1 }}>
+    <Box sx={{ flexGrow: 3, display: { xs: 'none', md: 'flex' }, margin: 0 }}>
+      <Box sx={{ flexGrow: 0, display: 'flex' }}>
         <Link to='/' style={{ color: '#FFF' }}>
           <span style={{ marginRight: 6 }}>{dynamicLogo(50)}</span>
           {dynamicText(240)}

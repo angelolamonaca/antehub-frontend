@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import Typography from '@mui/material/Typography'
@@ -7,14 +6,17 @@ import MenuIcon from '@mui/icons-material/Menu'
 import Avatar from '@mui/material/Avatar'
 import Tooltip from '@mui/material/Tooltip'
 import MenuItem from '@mui/material/MenuItem'
-import AdbIcon from '@mui/icons-material/Adb'
 import PropTypes from 'prop-types'
 import { pages, settings } from './index'
+import dynamicLogo from '../../assets/antehub-logo/svg/dynamic-logo'
+import dynamicText from '../../assets/antehub-logo/svg/dynamic-text'
+import { Link } from 'react-router-dom'
+import { capitalize } from '@mui/material'
 
 export const Mobile = (props: Props): JSX.Element => {
   return (
-    <Fragment>
-      <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+    <Box sx={{ flexGrow: 3, display: { xs: 'flex', md: 'none' }, marginY: 0.5 }}>
+      <Box sx={{ flexGrow: 0, display: 'flex' }}>
         <IconButton
           size='large'
           aria-label='account of current user'
@@ -45,30 +47,17 @@ export const Mobile = (props: Props): JSX.Element => {
         >
           {pages.map((page) => (
             <MenuItem key={page} onClick={props.handleCloseNavMenu}>
-              <Typography textAlign='center'>{page}</Typography>
+              <Typography textAlign='center'>{capitalize(page)}</Typography>
             </MenuItem>
           ))}
         </Menu>
       </Box>
-      <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-      <Typography
-        variant='h5'
-        noWrap
-        component='a'
-        href=''
-        sx={{
-          mr: 2,
-          display: { xs: 'flex', md: 'none' },
-          flexGrow: 1,
-          fontFamily: 'monospace',
-          fontWeight: 700,
-          letterSpacing: '.3rem',
-          color: 'inherit',
-          textDecoration: 'none'
-        }}
-      >
-        AnteHub
-      </Typography>
+      <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
+        <Link to='/' style={{ color: '#FFF' }}>
+          <span style={{ marginRight: 6 }}>{dynamicLogo(40)}</span>
+          {dynamicText(120)}
+        </Link>
+      </Box>
       <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
         <Tooltip title='Open settings'>
           <IconButton onClick={props.handleOpenUserMenu} sx={{ p: 0 }}>
@@ -98,7 +87,7 @@ export const Mobile = (props: Props): JSX.Element => {
           ))}
         </Menu>
       </Box>
-    </Fragment>
+    </Box>
   )
 }
 
