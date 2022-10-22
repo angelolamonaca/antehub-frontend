@@ -5,7 +5,7 @@ import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Container from '@mui/material/Container'
 
-export const pages = ['Products', 'Pricing', 'Blog']
+export const pages = ['wallets', 'transactions']
 export const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
 export const AppBarTop = (): JSX.Element => {

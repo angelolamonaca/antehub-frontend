@@ -2,9 +2,8 @@ import AppBarTop from './AppBarTop'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Counter } from '../redux/features/counter/Counter'
 import Home from './pages/Home'
-import Layout from './pages/Layout'
-import Blogs from './pages/Blogs'
-import Contact from './pages/Contact'
+import Wallets from './pages/Wallets'
+import Transactions from './pages/Transactions'
 import NoPage from './pages/NoPage'
 
 export const Index = (): JSX.Element => {
@@ -13,10 +12,10 @@ export const Index = (): JSX.Element => {
       <BrowserRouter>
         <AppBarTop />
         <Routes>
-          <Route path='/' element={<Layout />}>
+          <Route path='/'>
             <Route index element={<Home />} />
-            <Route path='blogs' element={<Blogs />} />
-            <Route path='contact' element={<Contact />} />
+            <Route path='wallets' element={<Wallets />} />
+            <Route path='transactions' element={<Transactions />} />
             <Route path='*' element={<NoPage />} />
           </Route>
         </Routes>
