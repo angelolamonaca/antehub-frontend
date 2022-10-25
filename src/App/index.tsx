@@ -6,6 +6,7 @@ import Wallets from './pages/Wallets'
 import Transactions from './pages/Transactions'
 import NoPage from './pages/NoPage'
 import WebFont from 'webfontloader'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 WebFont.load({
   google: {
@@ -13,9 +14,36 @@ WebFont.load({
   }
 })
 
+const theme = createTheme({
+  palette: {
+    neutral: {
+      main: '#ffffff',
+      contrastText: '#fff'
+    }
+  }
+})
+
+declare module '@mui/material/styles' {
+  interface Palette {
+    neutral: Palette['primary']
+  }
+
+  // allow configuration using `createTheme`
+  interface PaletteOptions {
+    neutral?: PaletteOptions['primary']
+  }
+}
+
+// Update the Button's color prop options
+declare module '@mui/material/Button' {
+  interface ButtonPropsColorOverrides {
+    neutral: true
+  }
+}
+
 export const Index = (): JSX.Element => {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
         <AppBarTop />
         <Routes>
@@ -28,7 +56,7 @@ export const Index = (): JSX.Element => {
         </Routes>
       </BrowserRouter>
       <Counter />
-    </div>
+    </ThemeProvider>
   )
 }
 

@@ -8,10 +8,20 @@ import { navMenuItems } from './index'
 const Desktop = (): JSX.Element => {
   return (
     <Box sx={{ flexGrow: 3, display: { xs: 'none', md: 'flex' } }}>
-      <Box sx={{ flexGrow: 0, display: 'flex' }}>
+      <Box
+        sx={{
+          transition: 'transform 0.2s',
+          '&:hover': {
+            transform: 'scale(1.2)'
+          },
+          flexGrow: 0,
+          display: 'flex',
+          marginLeft: 2
+        }}
+      >
         <Link to='/' style={{ color: '#FFF' }}>
-          <span style={{ marginRight: 6 }}>{dynamicLogo(50)}</span>
-          {dynamicText(240)}
+          <span style={{ marginRight: 6 }}>{dynamicLogo(40)}</span>
+          {dynamicText(180)}
         </Link>
       </Box>
 

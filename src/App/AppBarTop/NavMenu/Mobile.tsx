@@ -18,7 +18,11 @@ const Mobile = ({
 }: MobileNavMenuProps): JSX.Element => {
   return (
     <Box
-      sx={{ flexGrow: 3, display: { xs: 'flex', md: 'none' }, marginY: 0.5 }}
+      sx={{
+        flexGrow: 3,
+        display: { xs: 'flex', md: 'none' },
+        marginY: 0.5
+      }}
     >
       <Box sx={{ flexGrow: 0, display: 'flex' }}>
         <IconButton
@@ -64,7 +68,17 @@ const Mobile = ({
         </Menu>
       </Box>
 
-      <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
+      <Box
+        sx={{
+          transition: 'transform 0.2s',
+          '&:hover': {
+            transform: 'scale(1.2)'
+          },
+          flexGrow: 1,
+          display: 'flex',
+          justifyContent: 'center'
+        }}
+      >
         <Link to='/' style={{ color: '#FFF' }}>
           <span style={{ marginRight: 6 }}>{dynamicLogo(40)}</span>
           {dynamicText(120)}

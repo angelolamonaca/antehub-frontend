@@ -2,7 +2,7 @@ import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import Container from '@mui/material/Container'
 import NavMenu from './NavMenu'
-import UserMenu from './UserMenu'
+import LoginButton from './LoginButton'
 
 const AppBarTop = (): JSX.Element => {
   return (
@@ -10,7 +10,7 @@ const AppBarTop = (): JSX.Element => {
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <NavMenu />
-          <UserMenu />
+          <LoginButton />
         </Toolbar>
       </Container>
     </AppBar>
