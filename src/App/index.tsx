@@ -1,12 +1,15 @@
 import AppBarTop from './AppBarTop'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Counter } from '../redux/features/counter/Counter'
 import Home from './pages/Home'
-import Wallets from './pages/Wallets'
-import Transactions from './pages/Transactions'
+import Wallets from './pages/Core/Wallets'
+import Transactions from './pages/Core/Transactions'
 import NoPage from './pages/NoPage'
 import WebFont from 'webfontloader'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import Auth from './pages/Auth'
+import Login from './pages/Auth/Login'
+import { Box } from '@mui/material'
+import Counter from '../redux/features/counter/Counter'
 
 WebFont.load({
   google: {
@@ -46,14 +49,21 @@ export const Index = (): JSX.Element => {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <AppBarTop />
-        <Routes>
-          <Route path='/'>
-            <Route index element={<Home />} />
-            <Route path='wallets' element={<Wallets />} />
-            <Route path='transactions' element={<Transactions />} />
-            <Route path='*' element={<NoPage />} />
-          </Route>
-        </Routes>
+        <Box sx={{ margin: 3 }}>
+          <Routes>
+            <Route path='/auth/'>
+              <Route index element={<Auth />} />
+              <Route path='login' element={<Login />} />
+              <Route path='*' element={<NoPage />} />
+            </Route>
+            <Route path='/'>
+              <Route index element={<Home />} />
+              <Route path='wallets' element={<Wallets />} />
+              <Route path='transactions' element={<Transactions />} />
+              <Route path='*' element={<NoPage />} />
+            </Route>
+          </Routes>
+        </Box>
       </BrowserRouter>
       <Counter />
     </ThemeProvider>

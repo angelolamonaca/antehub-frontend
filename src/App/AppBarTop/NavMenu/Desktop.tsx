@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
-import dynamicLogo from '../../../assets/antehub-logo/svg/dynamic-logo'
-import dynamicText from '../../../assets/antehub-logo/svg/dynamic-text'
+import dynamicLogo from '../../../assets/antehub-logo/dynamic/dynamic-logo'
+import dynamicText from '../../../assets/antehub-logo/dynamic/dynamic-text'
 import { navMenuItems } from './index'
 
 const Desktop = (): JSX.Element => {

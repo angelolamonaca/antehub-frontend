@@ -1,12 +1,15 @@
 import { Box, Button } from '@mui/material'
 import LoginIcon from '@mui/icons-material/Login'
+import { Link } from 'react-router-dom'
 
 const Desktop = () => {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-      <Button variant='outlined' color='neutral' endIcon={<LoginIcon />}>
-        LOGIN
-      </Button>
+      <Link to='/auth/'>
+        <Button variant='outlined' color='neutral' endIcon={<LoginIcon />}>
+          LOGIN
+        </Button>
+      </Link>
     </Box>
   )
 }
