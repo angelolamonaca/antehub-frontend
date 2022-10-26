@@ -9,7 +9,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles'
 import Auth from './pages/Auth'
 import Login from './pages/Auth/Login'
 import { Box } from '@mui/material'
-import Counter from '../redux/features/counter/Counter'
 
 WebFont.load({
   google: {
@@ -65,7 +64,6 @@ export const Index = (): JSX.Element => {
           </Routes>
         </Box>
       </BrowserRouter>
-      <Counter />
     </ThemeProvider>
   )
 }

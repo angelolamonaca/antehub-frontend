@@ -1,35 +1,17 @@
 import dynamicLogo from '../../../assets/metamask-logo/dynamic-logo'
 import { Box, Button, Typography } from '@mui/material'
-import { ethers } from 'ethers'
 import { Fragment } from 'react'
-
-function connectToWallet() {
-  let address: string
-  if (window.ethereum) {
-    window.ethereum
-      .request({ method: 'eth_requestAccounts' })
-      .then((res: [string]) => {
-        // Return the address of the wallet
-        console.log(res)
-        address = res[0]
-      })
-      .then(() => {
-        window.ethereum
-          .request({
-            method: 'eth_getBalance',
-            params: [address, 'latest']
-          })
-          .then((balance: string) => {
-            console.log(balance)
-            console.log(ethers.utils.formatEther(balance))
-          })
-      })
-  } else {
-    alert('install metamask extension!!')
-  }
-}
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+// eslint-disable-next-line max-len
+import {
+  requestAccountsAsync,
+  selectAccounts
+} from '../../../redux/slices/metaMaskAccountsSlice'
 
 const Login = () => {
+  const accounts = useAppSelector(selectAccounts)
+  const dispatch = useAppDispatch()
+
   return (
     <Fragment>
       <Typography sx={{ fontFamily: 'DM Mono' }}>
@@ -42,7 +24,9 @@ const Login = () => {
           flexDirection: 'column'
         }}
       >
-        <Button onClick={connectToWallet}>{dynamicLogo(70)}</Button>
+        <Button onClick={() => dispatch(requestAccountsAsync())}>
+          {dynamicLogo(70)}
+        </Button>
         <Typography sx={{ fontFamily: 'DM Mono', textAlign: 'center' }}>
           Click on the MetaMask Logo to login
         </Typography>
