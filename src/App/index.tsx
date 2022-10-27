@@ -43,7 +43,7 @@ declare module '@mui/material/Button' {
   }
 }
 
-export const Index = (): JSX.Element => {
+export const App = (): JSX.Element => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
@@ -68,4 +68,4 @@ export const Index = (): JSX.Element => {
   )
 }
 
-export default Index
+export default App

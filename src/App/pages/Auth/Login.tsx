@@ -4,11 +4,13 @@ import { Fragment } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 // eslint-disable-next-line max-len
 import {
-  requestAccountsAsync,
-  selectAccounts
-} from '../../../redux/slices/metaMaskAccountsSlice'
+  connectMetaMask,
+  selectAccounts,
+  selectNetwork
+} from '../../../redux/slices/metaMaskSlice'
 
 const Login = () => {
+  const network = useAppSelector(selectNetwork)
   const accounts = useAppSelector(selectAccounts)
   const dispatch = useAppDispatch()
 
@@ -24,13 +26,15 @@ const Login = () => {
           flexDirection: 'column'
         }}
       >
-        <Button onClick={() => dispatch(requestAccountsAsync())}>
+        <Button onClick={() => dispatch(connectMetaMask())}>
           {dynamicLogo(70)}
         </Button>
         <Typography sx={{ fontFamily: 'DM Mono', textAlign: 'center' }}>
           Click on the MetaMask Logo to login
         </Typography>
       </Box>
+      <p>{network?.network}</p>
+      <p>{accounts}</p>
     </Fragment>
   )
 }

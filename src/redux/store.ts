@@ -1,9 +1,9 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
-import metaMaskAccountsReducer from './slices/metaMaskAccountsSlice'
+import metaMaskReducer from './slices/metaMaskSlice'
 
 const store = configureStore({
   reducer: {
-    metaMaskAccounts: metaMaskAccountsReducer
+    metaMask: metaMaskReducer
   }
 })
 
