@@ -4,25 +4,20 @@ import { Fragment } from 'react'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 // eslint-disable-next-line max-len
 import {
-  connectMetaMask,
+  fetchMetaMaskAccounts,
   selectStatus
 } from '../../../redux/slices/metaMaskSlice'
 import { MetaMaskStatus } from '../../../utils/MetaMask'
-import { Navigate } from 'react-router-dom'
 
 const Login = () => {
   const status = useAppSelector(selectStatus)
 
   const dispatch = useAppDispatch()
 
-  if (status === MetaMaskStatus.RECEIVED) {
-    return <Navigate replace to='/' />
-  }
-
   return (
     <Fragment>
       <Typography sx={{ fontFamily: 'DM Mono' }}>
-        AnteHub requires to connect with your MetaMask Account
+        AnteHub requires to connect with your MetaMask Accounts
       </Typography>
       <Box
         sx={{
@@ -32,30 +27,45 @@ const Login = () => {
           marginTop: 6
         }}
       >
-        <Button onClick={() => dispatch(connectMetaMask())}>
-          {dynamicLogo(120)}
-        </Button>
-        <Typography sx={{ fontFamily: 'DM Mono', textAlign: 'center' }}>
-          Click on the MetaMask Logo to login
-        </Typography>
         <Box sx={{ textAlign: 'center', marginY: 10 }}>
-          {status === MetaMaskStatus.PENDING && (
+          {status === MetaMaskStatus.NETWORK_RECEIVED && (
+            <Fragment>
+              <Button onClick={() => dispatch(fetchMetaMaskAccounts())}>
+                {dynamicLogo(120)}
+              </Button>
+              <Typography sx={{ fontFamily: 'DM Mono', textAlign: 'center' }}>
+                Click on the MetaMask Logo to login
+              </Typography>
+            </Fragment>
+          )}
+          {status === MetaMaskStatus.ACCOUNTS_RECEIVED && (
+            <Typography sx={{ fontFamily: 'DM Mono' }}>
+              Antehub is now connected with your MetaMask Wallet
+            </Typography>
+          )}
+          {status === MetaMaskStatus.ACCOUNTS_REQUEST_PENDING && (
             <Typography sx={{ fontFamily: 'DM Mono' }}>
               Connecting to MetaMask, please wait...
             </Typography>
           )}
           {status === MetaMaskStatus.FAILED && (
-            <Typography sx={{ fontFamily: 'DM Mono' }}>
-              Please install&nbsp;
-              <a
-                href='https://metamask.io/'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                MetaMask
-              </a>
-              &nbsp;and try again!
-            </Typography>
+            <Fragment>
+              <Typography sx={{ fontFamily: 'DM Mono' }}>
+                Please install&nbsp;
+                <a
+                  href='https://metamask.io/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  MetaMask
+                </a>
+                &nbsp;and try again!
+              </Typography>
+              <Typography sx={{ fontFamily: 'DM Mono' }}>
+                If Metamask is already installed, you might have multiple
+                wallets installed.
+              </Typography>
+            </Fragment>
           )}
         </Box>
       </Box>

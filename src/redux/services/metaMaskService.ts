@@ -2,7 +2,13 @@ import detectEthereumProvider from '@metamask/detect-provider'
 import * as MetaMask from '../../utils/MetaMask'
 
 export async function detectProvider() {
-  return await detectEthereumProvider()
+  const provider = await detectEthereumProvider()
+
+  if (!provider || provider !== window.ethereum) {
+    throw Error()
+  }
+
+  return provider
 }
 
 export async function fetchNetwork(provider: any) {
