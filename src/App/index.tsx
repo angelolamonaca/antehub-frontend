@@ -21,6 +21,10 @@ const theme = createTheme({
     neutral: {
       main: '#ffffff',
       contrastText: '#fff'
+    },
+    login: {
+      main: '#e3761b',
+      contrastText: '#fff'
     }
   }
 })
@@ -28,11 +32,13 @@ const theme = createTheme({
 declare module '@mui/material/styles' {
   interface Palette {
     neutral: Palette['primary']
+    login: Palette['primary']
   }
 
   // allow configuration using `createTheme`
   interface PaletteOptions {
     neutral?: PaletteOptions['primary']
+    login?: PaletteOptions['primary']
   }
 }
 
@@ -40,6 +46,7 @@ declare module '@mui/material/styles' {
 declare module '@mui/material/Button' {
   interface ButtonPropsColorOverrides {
     neutral: true
+    login: true
   }
 }
 

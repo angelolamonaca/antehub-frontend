@@ -1,3 +1,10 @@
+export enum MetaMaskStatus {
+  NOT_REQUESTED_YET,
+  PENDING,
+  RECEIVED,
+  FAILED
+}
+
 enum ChainId {
   ETHEREUM_MAIN_NETWORK = '0x1',
   ROPSTEN_TEST_NETWORK = '0x3',

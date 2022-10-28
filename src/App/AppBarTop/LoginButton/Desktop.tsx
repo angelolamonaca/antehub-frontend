@@ -6,7 +6,7 @@ const Desktop = () => {
   return (
     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
       <Link to='/auth/'>
-        <Button variant='outlined' color='neutral' endIcon={<LoginIcon />}>
+        <Button variant='contained' color='login' endIcon={<LoginIcon />}>
           LOGIN
         </Button>
       </Link>

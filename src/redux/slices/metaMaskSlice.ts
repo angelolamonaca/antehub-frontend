@@ -4,19 +4,20 @@ import {
   fetchAccounts,
   fetchNetwork
 } from '../services/metaMaskService'
+
 import { AppThunk, RootState } from '../store'
-import { Chain } from '../../utils/MetaMask'
+import { Chain, MetaMaskStatus } from '../../utils/MetaMask'
 
 export interface MetaMaskState {
   network: Chain | undefined
   accounts: [string?]
-  status: 'pending' | 'received' | 'failed' | 'not requested yet'
+  status: MetaMaskStatus
 }
 
 const initialState: MetaMaskState = {
   network: undefined,
   accounts: [],
-  status: 'not requested yet'
+  status: MetaMaskStatus.NOT_REQUESTED_YET
 }
 
 export const connectMetaMask = createAsyncThunk(
@@ -41,15 +42,15 @@ export const metaMaskSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(connectMetaMask.pending, (state) => {
-        state.status = 'pending'
+        state.status = MetaMaskStatus.PENDING
       })
       .addCase(connectMetaMask.fulfilled, (state, action) => {
-        state.status = 'received'
+        state.status = MetaMaskStatus.RECEIVED
         state.network = action.payload.network
         state.accounts = action.payload.accounts
       })
       .addCase(connectMetaMask.rejected, (state) => {
-        state.status = 'failed'
+        state.status = MetaMaskStatus.FAILED
       })
   }
 })
@@ -68,7 +69,7 @@ export const selectStatus = (state: RootState) => state.metaMask.status
 export const fetchAccountsIfNotRequestedYet =
   (): AppThunk => (dispatch, getState) => {
     const currentStatus = selectStatus(getState())
-    if (currentStatus === 'not requested yet') {
+    if (currentStatus === MetaMaskStatus.NOT_REQUESTED_YET) {
       dispatch(connectMetaMask())
     }
   }

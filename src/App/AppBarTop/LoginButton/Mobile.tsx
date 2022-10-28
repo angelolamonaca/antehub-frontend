@@ -6,7 +6,7 @@ const Mobile = () => {
   return (
     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
       <Link to='/auth/'>
-        <Button variant='outlined' color='neutral'>
+        <Button variant='contained' color='login'>
           <LoginIcon />
         </Button>
       </Link>

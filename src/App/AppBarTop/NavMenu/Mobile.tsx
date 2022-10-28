@@ -70,10 +70,6 @@ const Mobile = ({
 
       <Box
         sx={{
-          transition: 'transform 0.2s',
-          '&:hover': {
-            transform: 'scale(1.2)'
-          },
           flexGrow: 1,
           display: 'flex',
           justifyContent: 'center'
